@@ -1,5 +1,11 @@
 :root {
-  --blue-color: #005fcc;
+  --blue-color: #00acdc;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
@@ -9,7 +15,6 @@ body {
 
 header {
   width: 100%;
-  height: 60px;
   padding: 0 50px;
   display: flex;
   align-items: center;
@@ -17,15 +22,12 @@ header {
   background: #fff;
 }
 
-.logo {
+.logo,
+nav,
+a {
+  height: 60px;
   display: flex;
   align-items: center;
-  height: 100%;
-}
-
-nav {
-  display: flex;
-  height: 100%;
 }
 
 ul {
@@ -35,8 +37,11 @@ ul {
   margin: 0;
   padding: 0;
   font-weight: 500;
-  font-size: 12px;
   text-transform: uppercase;
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0;
 }
 
 li + li {
@@ -44,10 +49,6 @@ li + li {
 }
 
 a {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  padding: 0 4px;
   text-decoration: none;
   color: #000;
   position: relative;
@@ -60,14 +61,17 @@ a:hover {
 
 .is-active {
   color: var(--blue-color);
+  position: relative;
 }
 
 .is-active::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
+  bottom: 0; /* Se coloca al pie del enlace */
+  left: 50%; /* Comienza en el centro del enlace */
+  transform: translateX(-50%); /* Lo centra horizontalmente */
+  width: 37px; /* Ancho según Figma */
+  height: 4px; /* Alto según Figma */
   background-color: var(--blue-color);
+  border-radius: 8px; /* Redondeo según Figma */
 }
